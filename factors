@@ -20,8 +20,14 @@ def pollards_rho(n):
     return d
 
 def prime_factors(n):
-    factor = pollards_rho(n)
-    return factor, n // factor
+    if n % 2 == 0:
+        return 2, n // 2
+    i = 3
+    while i * i <= n:
+        if n % i == 0:
+            return i, n // i
+        i += 2
+    return 1, n
 
 with open(sys.argv[1]) as file:
     for number in file:
