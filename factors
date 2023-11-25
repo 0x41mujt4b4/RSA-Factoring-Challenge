@@ -1,0 +1,30 @@
+#!/usr/bin/python3
+import sys
+import math
+
+
+def gcd(a, b):
+    while b != 0:
+        a, b = b, a % b
+    return a
+
+def pollards_rho(n):
+    if n % 2 == 0:
+        return 2
+    x = 2; y = 2; d = 1
+    f = lambda x: (x**2 + 1) % n
+    while d == 1:
+        x = f(x)
+        y = f(f(y))
+        d = math.gcd(abs(x-y), n)
+    return d
+
+def prime_factors(n):
+    factor = pollards_rho(n)
+    return factor, n // factor
+
+with open(sys.argv[1]) as file:
+    for number in file:
+        n = int(number)
+        factors = prime_factors(n)
+        print(f"{n}={'*'.join(map(str, factors))}")
