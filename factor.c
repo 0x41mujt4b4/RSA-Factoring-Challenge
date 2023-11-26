@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
 	size_t count;
 	ssize_t line;
 	char *buffer = NULL;
-	u_int64_t n, f1, f2;
+	long long unsigned int n, f1, f2;
 
 
 	if (argc != 2)
@@ -34,7 +34,7 @@ int main(int argc, char *argv[])
 		f1 = factorize(buffer);
 		f2 = n / f1;
 		buffer[strcspn(buffer, "\n")] = 0;
-		printf("%s=%lu*%lu\n", buffer, f1, f2);
+		printf("%s=%llu*%llu\n", buffer, f1, f2);
 	}
 	return (0);
 }
