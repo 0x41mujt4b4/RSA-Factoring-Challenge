@@ -1,14 +1,9 @@
-#ifndef _FACTOR_H_
-#define _FACTOR_H_
+#ifndef FACTORS_H
+#define FACTORS_H
 
+#include <vector>
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#define _GNU_SOURCE
+std::vector<std::pair<int, int>> factorize(int number);
+void factorize_file(const std::string& file_path);
 
-
-/* size_t getline(char **lineptr, size_t *n, FILE *stream); */
-int factorize(char *buffer);
-
-#endif /* _FACTOR_H_ */
+#endif /* FACTORS_H */
